@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="me.androidbox.rxjavadownload.downloader.DownloadView">
+
+    <TextView
+        android:id="@+id/tvDisplayResult"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/hello_blank_fragment"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-medium"/>
+
+    <Button
+        android:id="@+id/btnStartDownload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Download"
+        android:textAllCaps="false"
+        android:textSize="18sp"/>
+
+</LinearLayout>
