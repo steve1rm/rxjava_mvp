@@ -5,16 +5,18 @@ package me.androidbox.rxjavadownload.downloader;
  */
 public class DownloadModel implements DownloadModelContract {
 
-    private DownloadModel() {
+    private DownloadPresenterContract.Events mPresenterEventsContract;
+    private DownloadModel(DownloadPresenterContract.Events downloadPresenterContract) {
+        mPresenterEventsContract = downloadPresenterContract;
     }
 
     /* Factory Method */
-    public static DownloadModel getNewInstance() {
-        return new DownloadModel();
+    public static DownloadModel getNewInstance(DownloadPresenterContract.Events events) {
+        return new DownloadModel(events);
     }
 
     @Override
     public void retrieveData() {
-
+        mPresenterEventsContract.onDownloadFailed();
     }
 }

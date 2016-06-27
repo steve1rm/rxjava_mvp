@@ -1,8 +1,7 @@
 package me.androidbox.rxjavadownload.downloader;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +18,8 @@ import me.androidbox.rxjavadownload.R;
  */
 public class DownloadView extends Fragment implements DownloadViewContract {
     @BindView(R.id.tvDisplayResult) TextView mTvDisplayResult;
-    @BindView(R.id.btnStartDownload) TextView mBtnStartDownload;
 
-    private DownloadPresenterContract.Operations mDownloadPresenterContract;
+    private DownloadPresenterContract.Operations<DownloadViewContract> mDownloadPresenterContract;
 
     public DownloadView() {
         // Required empty public constructor
@@ -33,10 +31,10 @@ public class DownloadView extends Fragment implements DownloadViewContract {
         final View view = inflater.inflate(R.layout.download_view, container, false);
 
         ButterKnife.bind(DownloadView.this, view);
+
         return view;
     }
 
-  //  @SuppressWarnings("unchecked")
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
