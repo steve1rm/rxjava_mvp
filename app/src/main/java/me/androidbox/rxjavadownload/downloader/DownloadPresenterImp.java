@@ -14,7 +14,7 @@ public class DownloadPresenterImp implements
 
     private DownloadPresenterImp() {
         Timber.d("DownloadPresenterImp");
-        mDownloadModelContract = DownloadModel.getNewInstance();
+        mDownloadModelContract = DownloadModel.getNewInstance(DownloadPresenterImp.this);
     }
 
     public static DownloadPresenterImp getNewInstance() {
@@ -34,18 +34,20 @@ public class DownloadPresenterImp implements
 
     @Override
     public void getData() {
+        Timber.d("getData");
         mDownloadModelContract.retrieveData();
     }
 
     /* Events */
     @Override
     public void onDownloadSuccess() {
+        Timber.d("onDownloadSuccess");
         mView.onSuccessDownload();
     }
 
     @Override
     public void onDownloadFailed() {
+        Timber.e("onDownloadFailed");
         mView.onFailureDownload("Failed");
     }
-
 }

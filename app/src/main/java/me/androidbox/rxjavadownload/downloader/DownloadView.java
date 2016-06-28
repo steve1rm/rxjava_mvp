@@ -12,6 +12,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import me.androidbox.rxjavadownload.R;
+import timber.log.Timber;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -50,7 +51,8 @@ public class DownloadView extends Fragment implements DownloadViewContract {
 
     @SuppressWarnings("unused")
     @OnClick(R.id.btnStartDownload)
-    void btnStartDownload() {
+    public void btnStartDownload(View view) {
+        Timber.d("btnStartDownload");
         mDownloadPresenterContract.getData();
     }
 
