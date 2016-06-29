@@ -37,7 +37,9 @@ public class DownloadModel implements DownloadModelContract {
 
     @Override
     public void retrieveData() {
-        getGistObservable()
+        Timber.d("retrieveData");
+
+        mSubscription = getGistObservable()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<Gist>() {
@@ -72,6 +74,14 @@ public class DownloadModel implements DownloadModelContract {
                 }
             }
         });
+    }
+
+    @Override
+    public void unsubscribe() {
+        Timber.d("unsubscribed");
+        if(mSubscription != null && !mSubscription.isUnsubscribed()) {
+            mSubscription.unsubscribe();
+        }
     }
 
     @Nullable

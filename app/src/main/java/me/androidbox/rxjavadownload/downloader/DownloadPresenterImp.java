@@ -30,6 +30,7 @@ public class DownloadPresenterImp implements
     @Override
     public void detachView() {
         mView = null;
+        mDownloadModelContract.unsubscribe();
     }
 
     @Override

@@ -5,4 +5,5 @@ package me.androidbox.rxjavadownload.downloader;
  */
 public interface DownloadModelContract {
     void retrieveData();
+    void unsubscribe();
 }
