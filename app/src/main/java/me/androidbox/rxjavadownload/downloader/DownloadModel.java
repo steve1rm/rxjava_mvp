@@ -10,7 +10,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import rx.Observable;
-import rx.Scheduler;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -78,9 +77,9 @@ public class DownloadModel implements DownloadModelContract {
 
     @Override
     public void unsubscribe() {
-        Timber.d("unsubscribed");
         if(mSubscription != null && !mSubscription.isUnsubscribed()) {
             mSubscription.unsubscribe();
+            Timber.d("unsubscribed");
         }
     }
 
